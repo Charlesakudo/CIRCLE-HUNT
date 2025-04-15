@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIRCLE EGG HUNT!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fef6e4, #fcd5ce);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url('https://www.transparenttextures.com/patterns/easter-egg-hunt.png');
+    }
+    h1 {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 3.5rem;
+      color: #e76f51;
+      margin: 0.5em 0;
+      animation: bounce 1s infinite alternate;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #444;
+      max-width: 600px;
+      margin-bottom: 2em;
+    }
+    .confetti {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    button {
+      background: #e76f51;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #d1543f;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti"></div>
+  <h1>🐰 You're an Easter Winner! 🥚</h1>
+  <p>
+    🐣 Hoppy Easter! You found the magical QR egg and you're one of our first 5 lucky hunters!<br>
+    Show this screen to the bartender to collect your egg-citing prize! 🍬🍹<br><br>
+    May your Easter be filled with sweet surprises and egg-stra fun! 🎉<br> <h1>#CIRCLEMOMENT</h1>
+  </p>
+  <button onclick="window.print()">Print this Page 🖨️</button>
+
+  <script>
+    // Confetti effect
+    const confetti = document.querySelector('.confetti');
+    for (let i = 0; i < 100; i++) {
+      const span = document.createElement('span');
+      span.style.position = 'absolute';
+      span.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      span.style.width = span.style.height = `${Math.random() * 8 + 4}px`;
+      span.style.left = `${Math.random() * 100}%`;
+      span.style.top = `${Math.random() * -20}%`;
+      span.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+      confetti.appendChild(span);
+    }
+  </script>
+
+  <style>
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+    }
+  </style>
+</body>
+</html>
